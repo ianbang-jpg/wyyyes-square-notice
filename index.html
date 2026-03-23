@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>와이스 스퀘어 정식 출시 안내 | WYYYES</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F1B3D;
+    --navy-light: #1A2D5A;
+    --blue: #2563EB;
+    --blue-light: #3B82F6;
+    --blue-soft: #60A5FA;
+    --blue-bg: #EFF6FF;
+    --blue-bg-deep: #DBEAFE;
+    --accent: #F59E0B;
+    --accent-light: #FEF3C7;
+    --dark: #0F172A;
+    --gray-900: #1E293B;
+    --gray-700: #475569;
+    --gray-500: #94A3B8;
+    --gray-300: #E2E8F0;
+    --gray-100: #F8FAFC;
+    --white: #FFFFFF;
+    --success: #10B981;
+    --red: #EF4444;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 4px 24px rgba(15,27,61,0.06);
+    --shadow-hover: 0 8px 40px rgba(37,99,235,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-900);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #0F1B3D 0%, #1A2D5A 40%, #2563EB 100%);
+    color: var(--white);
+    padding: 72px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(96,165,250,0.1) 0%, transparent 40%);
+    animation: heroFloat 20s ease-in-out infinite;
+  }
+
+  @keyframes heroFloat {
+    0%, 100% { transform: translate(0,0) rotate(0deg); }
+    33% { transform: translate(2%,-2%) rotate(1deg); }
+    66% { transform: translate(-1%,1%) rotate(-0.5deg); }
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.6s ease;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 7vw, 60px);
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+    animation: fadeInUp 0.8s ease;
+  }
+
+  .hero h1 .highlight {
+    color: var(--white);
+  }
+
+  .hero p {
+    font-size: 17px;
+    font-weight: 400;
+    opacity: 0.9;
+    max-width: 540px;
+    margin: 0 auto 28px;
+    animation: fadeInUp 1s ease;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--blue);
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.2s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+
+  .hero-cta .arrow { transition: transform 0.3s ease; }
+  .hero-cta:hover .arrow { transform: translateX(4px); }
+
+  .hero-date {
+    margin-top: 14px;
+    font-size: 13px;
+    opacity: 0.6;
+    font-weight: 400;
+    animation: fadeInUp 1.4s ease;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== NAV TABS ===== */
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 14px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: center;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .nav-tab {
+    flex-shrink: 0;
+    padding: 8px 18px;
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .nav-tab:hover, .nav-tab.active {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+  }
+
+  /* ===== UPDATE BANNER ===== */
+  .update-banner {
+    background: linear-gradient(135deg, var(--blue-bg), var(--blue-bg-deep));
+    border: 1px solid rgba(37,99,235,0.15);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 0 auto 36px;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.6s ease;
+  }
+
+  .update-banner-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+
+  .update-banner p { font-size: 15px; color: var(--gray-700); }
+
+  .update-banner .tag {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .dashboard-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .dashboard-features span {
+    background: var(--white);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--gray-700);
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* ===== INTRO ===== */
+  .intro { text-align: center; padding: 48px 24px 32px; }
+
+  .intro p {
+    font-size: 16px;
+    color: var(--gray-700);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .intro .emoji-celebration {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* ===== BANNER IMAGE ===== */
+  .banner-image {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    padding: 0 24px;
+  }
+
+  .banner-image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 900;
+    color: var(--navy);
+    text-align: center;
+    margin: 60px 0 40px;
+    letter-spacing: -0.3px;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: var(--blue);
+    border-radius: 2px;
+    margin: 12px auto 0;
+  }
+
+  /* ===== FEATURE CARDS ===== */
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 40px;
+  }
+
+  .feature-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .feature-card.visible { opacity: 1; transform: translateY(0); }
+  .feature-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+  .feature-card.visible:hover { transform: translateY(-4px); }
+
+  .feature-header { padding: 28px 28px 20px; }
+
+  .feature-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .feature-header h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .feature-header p { font-size: 15px; color: var(--gray-700); line-height: 1.7; }
+
+  .feature-header ul { margin-top: 12px; padding-left: 20px; }
+  .feature-header li { font-size: 14px; color: var(--gray-700); margin-bottom: 4px; }
+
+  .feature-header .warning {
+    color: var(--red);
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .feature-image {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid var(--gray-300);
+  }
+
+  .feature-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .feature-card:hover .feature-image img { transform: scale(1.03); }
+
+  /* ===== HOW TO USE ===== */
+  .how-to-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    margin: 20px 0 40px;
+    box-shadow: var(--shadow);
+  }
+
+  .how-to-section h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .how-to-section .sub-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 32px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .how-to-section .note-box {
+    background: var(--blue-bg);
+    border-left: 4px solid var(--blue);
+    padding: 16px 20px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 15px;
+    color: var(--gray-700);
+    margin: 12px 0 20px;
+    font-weight: 500;
+  }
+
+  .how-to-image {
+    margin: 16px 0 24px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--gray-300);
+  }
+
+  .how-to-image img {
+    width: 100%;
+    display: block;
+  }
+
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 16px 16px 16px 52px;
+    margin-bottom: 12px;
+    background: var(--gray-100);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    color: var(--gray-700);
+  }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 14px;
+    top: 16px;
+    width: 28px;
+    height: 28px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .steps li .detail {
+    display: block;
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 4px;
+  }
+
+  .steps li .warning-inline {
+    display: block;
+    background: var(--accent-light);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #92400E;
+    font-weight: 600;
+  }
+
+  .form-link {
+    display: inline-block;
+    background: var(--blue-bg);
+    color: var(--blue);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .form-link:hover { background: var(--blue); color: var(--white); }
+
+  /* ===== PRICING ===== */
+  .pricing-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--blue) 100%);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    text-align: center;
+    color: var(--white);
+    margin: 20px 0 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -20%;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .pricing-card h2 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    position: relative;
+    letter-spacing: -0.3px;
+  }
+
+  .pricing-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .price-item {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-sm);
+    padding: 20px 28px;
+    min-width: 180px;
+  }
+
+  .price-item .label { font-size: 13px; opacity: 0.85; margin-bottom: 6px; }
+
+  .price-item .amount { font-size: 28px; font-weight: 900; }
+
+  .price-item .amount .original {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 400;
+  }
+
+  .price-item .discount-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--dark);
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 6px;
+  }
+
+  .pricing-card .free-trial {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .pricing-card .coffee-note {
+    margin-top: 20px;
+    font-size: 15px;
+    opacity: 0.9;
+    position: relative;
+  }
+
+  /* ===== INFO CARDS ===== */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0 40px;
+  }
+
+  .info-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+  }
+
+  .info-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-card p, .info-card li { font-size: 14px; color: var(--gray-700); line-height: 1.7; }
+  .info-card ul { padding-left: 18px; margin-top: 8px; }
+  .info-card li { margin-bottom: 6px; }
+
+  .info-card a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .info-card a:hover { text-decoration: underline; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--white);
+    border-top: 1px solid var(--gray-300);
+    padding: 32px 24px;
+    margin-top: 40px;
+  }
+
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.8;
+  }
+
+  .footer-content a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .footer-content .app-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .footer-content .app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue-bg);
+    color: var(--blue);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .footer-content .app-link:hover { background: var(--blue); color: var(--white); }
+
+  /* ===== SCROLL TOP ===== */
+  .scroll-top {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    width: 48px; height: 48px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(15,27,61,0.25);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .scroll-top.visible { opacity: 1; transform: translateY(0); }
+  .scroll-top:hover { background: var(--blue); transform: translateY(-2px); }
+
+  /* ===== FLOATING CTA ===== */
+  .floating-cta {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--blue);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.35);
+    z-index: 99;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .floating-cta.visible { transform: translateX(-50%) translateY(0); }
+  .floating-cta:hover { background: var(--navy); box-shadow: 0 6px 28px rgba(15,27,61,0.4); }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 48px; }
+    .hero-cta { padding: 14px 28px; font-size: 15px; }
+    .update-banner { margin: 0 16px 28px; padding: 20px; }
+    .dashboard-features { grid-template-columns: repeat(2, 1fr); }
+    .feature-header { padding: 24px 20px 16px; }
+    .how-to-section { padding: 28px 20px; }
+    .pricing-card { padding: 32px 20px; }
+    .pricing-row { flex-direction: column; align-items: center; }
+    .price-item { width: 100%; }
+    .info-grid { grid-template-columns: 1fr; }
+    .floating-cta { font-size: 14px; padding: 12px 24px; }
+    .nav-tabs { padding: 12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">WYYYES SQUARE</div>
+    <h1>와이스 스퀘어 정식 출시 안내</h1>
+    <p>딜러님들을 위한 웹 판매자 센터, 베타테스트를 거쳐 드디어 정식 출시되었습니다!</p>
+    <a href="https://dealer-square.wyyyes.com/" target="_blank" class="hero-cta">
+      와이스 스퀘어 바로가기 <span class="arrow">&#8594;</span>
+    </a>
+    <div class="hero-date">2026.02.23 게시 &nbsp;|&nbsp; PC 접속 권장</div>
+  </div>
+</section>
+
+<!-- NAV TABS -->
+<nav class="nav-tabs" id="navTabs">
+  <a href="#features" class="nav-tab active">주요 기능</a>
+  <a href="#howto" class="nav-tab">이용 방법</a>
+  <a href="#pricing" class="nav-tab">구독 요금</a>
+  <a href="#info" class="nav-tab">FAQ / 안내</a>
+</nav>
+
+<!-- UPDATE BANNER -->
+<div class="container">
+  <div class="update-banner">
+    <div class="update-banner-title"><span class="tag">NEW</span> "대시보드"가 추가 업데이트 되었습니다! (2/26)</div>
+    <p>최근 14일 이내의 딜러 활동 데이터를 한 화면에 모아놓고 점검 및 분석할 수 있습니다.</p>
+    <div class="dashboard-features">
+      <span>총 매출</span>
+      <span>라이브 낙찰률</span>
+      <span>총 판매 상품 수</span>
+      <span>최고 판매가</span>
+      <span>위클리 미션</span>
+      <span>입금 정산액</span>
+      <span>신규 구매자</span>
+      <span>TOP 7 구매자</span>
+      <span>총 구매자 수</span>
+      <span>발송 필요 구매자</span>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <span class="emoji-celebration">&#127882;</span>
+  <p>안녕하세요, 유저 여러분. 와이스입니다.<br>
+  항상 저희 서비스를 이용해 주셔서 대단히 감사합니다.<br><br>
+  와이스 딜러님들을 위한 웹 판매자 센터인 <strong>와이스 스퀘어</strong>가 지난 베타테스트 이후 여러 유용한 기능 추가 및 개선을 거쳐 드디어 <strong>정식 출시</strong>되었습니다!</p>
+</section>
+
+<!-- BANNER IMAGE -->
+<div class="banner-image">
+  <img src="./스퀘어_상세_개별1_진입.jpg" alt="와이스 스퀘어 정식 출시 배너">
+</div>
+
+<!-- FEATURES -->
+<section class="container" id="features">
+  <h2 class="section-title">와이스 스퀘어 주요 기능</h2>
+  <p style="text-align:center; color:var(--gray-700); margin-bottom:32px; font-size:15px;">
+    기존 모바일에서 번거로웠던 작업을 PC에서 더 쉽고 빠르게 처리하세요.
+  </p>
+
+  <div class="features-grid">
+    <!-- 1. 캘린더 -->
+    <div class="feature-card" data-animate>
+      <div class="feature-header">
+        <div class="feature-number">1</div>
+        <h3>캘린더</h3>
+        <p>매출과 정산 흐름을 한눈에 확인할 수 있는 캘린더 페이지입니다. 일자별 세부 정보 확인과 특이사항 기록을 위한 메모 기능을 제공합니다.</p>
+      </div>
+      <div class="feature-image">
+        <img src="./스퀘어_상세_개별2_캘린더.jpg" alt="캘린더 화면">
+      </div>
+    </div>
+
+    <!-- 2. 판매 목록 -->
+    <div class="feature-card" data-animate>
+      <div class="feature-header">
+        <div class="feature-number">2</div>
+        <h3>판매 목록</h3>
+        <p>판매내역 확인은 물론, 상품 발송을 위한 엑셀 다운로드 및 안심번호 일괄 조회 기능을 제공합니다.</p>
+      </div>
+      <div class="feature-image">
+        <img src="./스퀘어_상세_개별3_판매목록.jpg" alt="판매 목록 화면">
+      </div>
+    </div>
+
+    <!-- 3. 주문 일괄 발송 -->
+    <div class="feature-card" data-animate>
+      <div class="feature-header">
+        <div class="feature-number">3</div>
+        <h3>주문 일괄 발송</h3>
+        <p>아직 발송하지 않은 상품들을 한 번에 발송 처리할 수 있는 기능입니다. 대상 내역을 엑셀로 다운로드한 후, 택배사와 송장번호만 입력하면 간편하게 일괄 발송할 수 있습니다.</p>
+      </div>
+      <div class="feature-image">
+        <img src="./스퀘어_상세_개별4_상품일괄발송.jpg" alt="주문 일괄 발송 화면">
+      </div>
+    </div>
+
+    <!-- 4. 상품 문의 채팅 -->
+    <div class="feature-card" data-animate>
+      <div class="feature-header">
+        <div class="feature-number">4</div>
+        <h3>상품 문의 채팅</h3>
+        <p>구매자와 1:1 채팅을 PC에서 편리하게 진행하며, 더욱 효율적인 고객 응대가 가능합니다.</p>
+      </div>
+      <div class="feature-image">
+        <img src="./스퀘어_상세_개별5_채팅.jpg" alt="상품 문의 채팅 화면">
+      </div>
+    </div>
+
+    <!-- 5. 지난 라이브 다시보기 -->
+    <div class="feature-card" data-animate>
+      <div class="feature-header">
+        <div class="feature-number">5</div>
+        <h3>지난 라이브 다시보기</h3>
+        <p>이전 진행했던 라이브들을 VOD 형태로 다시 확인하실 수 있습니다.</p>
+        <ul>
+          <li>최근 14일 이내 진행된 라이브만 확인 가능</li>
+          <li>다시보기는 최대 월 10회까지 가능</li>
+        </ul>
+        <p class="warning">&#9888; 라이브 다시보기는 와이스 스퀘어에서만 제공되며, 이후 기존 다운로드 링크 추출 서비스는 제공되지 않습니다.</p>
+      </div>
+      <div class="feature-image">
+        <img src="./스퀘어_상세_개별6_지난라이브.jpg" alt="지난 라이브 다시보기 화면">
+      </div>
+    </div>
+
+    <!-- 대시보드 (NEW) -->
+    <div class="feature-card" data-animate>
+      <div class="feature-header">
+        <div class="feature-number" style="background:var(--accent);color:var(--dark);">&#9733;</div>
+        <h3>대시보드 <span style="background:var(--blue);color:#fff;padding:2px 10px;border-radius:6px;font-size:12px;font-weight:700;vertical-align:middle;margin-left:6px;">NEW</span></h3>
+        <p>최근 14일 이내의 딜러 활동 데이터를 한 화면에 모아놓고 점검 및 분석하실 수 있습니다. 총 매출, 낙찰률, 판매 상품 수, 정산액, 구매자 분석 등을 제공합니다.</p>
+      </div>
+      <div class="feature-image">
+        <img src="./스퀘어_상세_개별7_대시보드.jpg" alt="대시보드 화면">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section class="container" id="howto">
+  <h2 class="section-title">이용 방법</h2>
+  <div class="how-to-section">
+    <p style="font-size:15px;color:var(--gray-700);margin-bottom:24px;">
+      <strong>와이스 스퀘어</strong>는 딜러 권한을 가진 유저에 한해 <strong>월 구독 방식</strong>으로 제공됩니다.
+    </p>
+
+    <h3 class="sub-title">&#128421; 계정 생성</h3>
+    <div class="note-box">
+      앱 내 마이페이지 &#8594; 딜러 탭 &#8594; 하단 [딜러 스퀘어 계정 생성] 클릭<br>
+      <span style="font-size:13px;color:var(--gray-500);">* 와이스 v1.15.70 버전부터 확인 가능</span>
+    </div>
+
+    <div class="how-to-image">
+      <img src="./스퀘어_상세_개별8_하단.jpg" alt="계정 생성 화면">
+    </div>
+
+    <ol class="steps">
+      <li>
+        와이스 스퀘어에서 사용하실 <strong>[아이디]</strong> 및 <strong>[비밀번호]</strong>를 입력합니다.
+        <span class="detail">아이디: 영문 4~30자, 숫자 포함 가능 &nbsp;|&nbsp; 비밀번호: 대/소/특수문자 포함, 10자 이상</span>
+        <span class="warning-inline">
+          &#9888; 계좌이체를 통한 결제를 희망하시는 경우, 스퀘어 계정을 직접 생성할 수 없습니다. 아래 양식을 작성해 주세요.<br>
+          <a href="https://docs.google.com/forms/d/1iKGKDD9nbHJOf-S7ariRrmUMdl6gWk7txWOOBQS8eFE/edit" target="_blank" class="form-link" style="margin-top:8px;">
+            &#128196; 계정 발급 요청 양식 (계좌이체용)
+          </a>
+        </span>
+      </li>
+      <li>
+        <strong>[월 구독 결제 수단]</strong>을 설정합니다.
+        <span class="detail">&#9888; 현재 계정 생성 이후 결제수단 변경은 스퀘어 페이지 내에서만 가능 (앱 내 변경 업데이트 예정)</span>
+      </li>
+      <li><strong>[계속하기]</strong>를 눌러 계정 생성을 완료합니다.</li>
+      <li>계정 생성이 정상적으로 완료되면, <strong>와이스 스퀘어를 즉시 이용</strong>하실 수 있습니다!</li>
+    </ol>
+
+    <div style="text-align:center;margin-top:28px;">
+      <a href="https://dealer-square.wyyyes.com/" target="_blank" class="hero-cta" style="display:inline-flex;font-size:15px;padding:14px 28px;">
+        와이스 스퀘어 바로가기 <span class="arrow">&#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="container" id="pricing">
+  <h2 class="section-title">구독 요금</h2>
+  <div class="pricing-card">
+    <h2>&#128176; 합리적인 구독 요금</h2>
+    <div class="pricing-row">
+      <div class="price-item">
+        <div class="label">출시 기념 특가 (첫 달)</div>
+        <div class="amount">
+          <span class="original">14,900원</span>
+          7,450원
+        </div>
+        <div class="discount-badge">50% OFF</div>
+      </div>
+      <div class="price-item">
+        <div class="label">정상가 (월)</div>
+        <div class="amount">14,900원</div>
+      </div>
+    </div>
+    <div class="free-trial">
+      &#127873; 계정 생성 시 <strong>7일 무료 체험</strong> 제공
+    </div>
+    <p class="coffee-note">&#9749; 커피 두 잔 값으로 한 달간 와이스 스퀘어를 부담 없이 이용해 보세요!</p>
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section class="container" id="info">
+  <h2 class="section-title">안내사항</h2>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>&#128232; 구독 자동 갱신 및 해지</h3>
+      <ul>
+        <li>와이스 스퀘어는 월 단위 자동 갱신 서비스입니다. 갱신 결제 완료 시 알림톡이 발송됩니다.</li>
+        <li style="color:var(--red);font-weight:600;">&#9888; 구독 연장을 원하지 않으실 경우, 반드시 갱신일 이전에 고객센터로 해지를 요청해 주세요.</li>
+        <li>갱신일 결제 이후 해지 시에는 익월부터 해지되며 해당월에는 환불이 어려울 수 있습니다.</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>&#128736; 오류/버그 제보</h3>
+      <p>와이스 스퀘어 이용 중 오류나 기타 버그를 발견하신 경우, 고객센터로 제보해 주시면 감사하겠습니다.</p>
+    </div>
+    <div class="info-card">
+      <h3>&#129489;&#8205;&#128187; FAQ / 고객센터</h3>
+      <ul>
+        <li>와이스 공식 이메일: <a href="mailto:support@wyyyes.com">support@wyyyes.com</a></li>
+        <li>와이스 앱 내 고객센터: 마이페이지 > 설정 > 문의하기 > <strong>와이스 딜러 스퀘어 문의</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>와이스 딜러님들의 많은 관심과 이용 부탁드립니다. 감사합니다.</p>
+    <br>
+    <p>
+      &#8226; 와이스 스퀘어 계정 생성 페이지는 <strong>와이스 1.15.70 버전</strong>에서 확인하실 수 있습니다.<br>
+      &#8226; 새로운 업데이트 내용 및 이벤트 확인을 위해 <a href="https://wyyyes.com/notices" target="_blank">공지사항</a>을 수시로 확인해 주세요.<br>
+      &#8226; 안정적인 앱 사용을 위해 항상 최신 버전의 와이스 앱 사용을 권장드립니다.
+    </p>
+    <div class="app-links">
+      <a href="https://play.google.com/store/apps/details?id=com.wyyyes.app" target="_blank" class="app-link">
+        &#9654; 안드로이드 앱 업데이트
+      </a>
+      <a href="https://apps.apple.com/kr/app/id1604496060" target="_blank" class="app-link">
+        &#63743; 아이폰 앱 업데이트
+      </a>
+    </div>
+    <br>
+    <p style="opacity:0.6;">&copy; WYYYES. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<!-- FLOATING CTA -->
+<a href="https://dealer-square.wyyyes.com/" target="_blank" class="floating-cta" id="floatingCta">
+  &#128640; 와이스 스퀘어 바로가기
+</a>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+  // Scroll top + floating CTA
+  const scrollTopBtn = document.getElementById('scrollTop');
+  const floatingCta = document.getElementById('floatingCta');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    scrollTopBtn.classList.toggle('visible', y > 400);
+    floatingCta.classList.toggle('visible', y > 600 && y < document.body.scrollHeight - window.innerHeight - 200);
+  });
+
+  // Nav tabs
+  const navTabs = document.querySelectorAll('.nav-tab');
+  const sections = ['features','howto','pricing','info'].map(id => document.getElementById(id));
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (s && s.getBoundingClientRect().top <= 120) current = s.id; });
+    navTabs.forEach(t => {
+      t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+    });
+  });
+
+  navTabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(tab.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
